@@ -13,37 +13,42 @@ body {
 }
 
 button {
-    height: 50px;
-    width: 100px;
+    flex: 1;
+    height: 100%;
     font-size: x-large;
     cursor: pointer;
 }
 
 #zero {
-    height: 50px;
-    width: 200px;
+    flex: 2;
 }
 
 #display {
     height: 100px;
     width: 100%;
     background-color: lightgrey;
-    text-align: end;
-    font-size: 72px;
     font-weight: 900;
     font-family: 'Courier New', Courier, monospace;
-    padding: 15px;
-
+    flex: 1;
+    font-size: 55px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 25px;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    border: 5px solid lightgray;
+    border: 8px solid black;
+    border-radius: 8px;
+    height: 800px;
+    width: 600px;
 }
 
 .row {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
