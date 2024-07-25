@@ -1,6 +1,6 @@
-let num1 = 0;
+let num1 = '';
 let operator = '';
-let num2 = 0;
+let num2 = '';
 let displayText = '';
 
 let activeNum = 'num1';
@@ -13,7 +13,7 @@ const clearBtn = document.querySelector('#clear');
 
 numBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        updateDisplay(e.target.innerText);      
+        // updateDisplay(e.target.innerText);      
         setNum(e.target.innerText);
     });
 });
@@ -69,15 +69,18 @@ function operate(operator, num1, num2) {
     display.innerText = result;
 };
 
+// Start adding to new activeNum AND reflect on display
 function setNum(num) {
-    
+    activeNum === 'num1' ? num1 += num : num2 += num;
+    updateDisplay();
 };
 
 function setOperator(symbol) {
+    activeNum === 'num1' ? activeNum = 'num2' : activeNum = 'num1';
     operator = symbol;
 };
 
-function updateDisplay(num) {
-    displayText += num;
+function updateDisplay() {
+    activeNum === 'num1' ? displayText = num1 : displayText = num2;
     display.innerText = displayText.substring(0, 8);
 };
